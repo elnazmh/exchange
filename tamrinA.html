@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tamrin</title>
+    <style>
+        .a {
+            height: 200px;
+            width: 100px;
+            background-color: chartreuse;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .b {
+            height: 200px;
+            width: 100px;
+            background-color: rgb(255, 85, 0);
+            margin: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <ul id="males">
+
+        </ul>
+    </div>
+    <div class="b">
+        <ul id="fmales">
+
+        </ul>
+    </div>
+
+    <script>
+        var users = [
+            { username: 'sahar', age: 21, gender: 'fmale' },
+            { username: 'ali', age: 23, gender: 'male' },
+            { username: 'noshin', age: 27, gender: 'fmale' },
+            { username: 'leila', age: 45, gender: 'fmale' },
+            { username: 'saeed', age: 32, gender: 'male' },
+            { username: 'elmira', age: 27, gender: 'fmale' },
+            { username: 'hosein', age: 16, gender: 'male' },
+            { username: 'homa', age: 37, gender: 'fmale' },
+            { username: 'naghi', age: 31, gender: 'male' },
+            { username: 'mina', age: 30, gender: 'fmale' },
+            { username: 'minoo', age: 24, gender: 'fmale' },
+            { username: 'emad', age: 28, gender: 'male' },
+            { username: 'mamad', age: 29, gender: 'male' },
+            { username: 'shoko', age: 38, gender: 'fmale' },
+            { username: 'manii', age: 33, gender: 'male' },
+            { username: 'elena', age: 43, gender: 'fmale' },
+            { username: 'elisa', age: 44, gender: 'fmale' },
+            { username: 'shirin', age: 46, gender: 'fmale' },
+
+
+        ]
+
+        // function elm(list) {
+        //     var maleCounter = 0;
+        //     var fmaleCounter = 0;
+
+        //     for (var index = 0; index < list.length; index++) {
+        //         if (list[index].gender == 'male') {
+        //             maleCounter++
+
+        //         } else if (list[index].gender == 'fmale') {
+        //             fmaleCounter++
+        //         }
+
+        //     }
+
+        //     return {
+        //         male: maleCounter,
+        //         fmale: fmaleCounter,
+        //     }
+        //     var result = {
+        //         male: maleCounter,
+        //         fmale: fmaleCounter,
+        //     }
+
+        //     return result
+        // }
+
+        // var respons = elm(users);
+        // console.log(respons);
+        function getUserByGender(list, gender) {
+            var result = []
+            for (let i = 0; i < list.length; i++) {
+                const element = list[i];
+                if (element.gender == gender) {
+                    result.push(element)
+                }
+            }
+            return result;
+        }
+
+        var males = getUserByGender(users, 'male');
+        var fmales = getUserByGender(users, 'fmale');
+        //console.log(males);
+        //console.log(fmales);
+        var mUl = document.getElementById("males")
+        for (let i = 0; i < males.length; i++) {
+            var li = document.createElement("li");
+            li.textContent =  males[i].username 
+            mUl.appendChild(li)
+
+        }
+
+        var fUl = document.getElementById("fmales")
+        for (let i = 0; i < fmales.length; i++) {
+            var li = document.createElement("li");
+            li.textContent =  fmales[i].username 
+            fUl.appendChild(li)
+
+        }
+    </script>
+</body>
+
+</html>
