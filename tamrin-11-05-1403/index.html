@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>max</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+
+        var data = [23, 656, 3, 8965, 65];
+        function max(list) {
+            var max = 0;
+            list.forEach(function (i) {
+                if (i > max) {
+                    max = i
+                }
+            });
+            return max;
+
+        }
+
+
+        console.log(max(data));
+        //min//
+        var data = [23,656,3,8965,65];
+        function min(list) {
+            var min = 10000;
+            list.forEach(function (i) {
+                if (i < min) {
+                    min = i
+                }
+            });
+            return min;
+
+        }
+
+
+        console.log(min(data));
+
+
+
+        
+
+    </script>
+</body>
+
+</html>
