@@ -12,6 +12,12 @@
     <div id="postList">
 
     </div>
+
+    <form action="" id="post-form" >
+        <input type="text" name="" id="title">
+        <textarea name="" id="body"></textarea>
+        <input type="submit" value="Save" onclick="savePost(event)">
+    </form>
     <script>
         const getPosts = async () => {
             let data = null;
@@ -47,9 +53,21 @@
 
         };
 
+        const savePost = (e)=>{
+            e.preventDefault();
+            const fromElement = document.getElementById('post-form')  
+            const form = new FormData(fromElement)
+            const post = {
+                userId:100,
+                id:101,
+                title: form.get('titlel'),
+                body: form.get('body')
+            }
+            const req = await fetch(url)
+        }
 
 
-        getPosts()
+        // getPosts()
 
 
     </script>

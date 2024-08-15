@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(79, 79, 190);
+        }
+
+        #div {
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 200px;
+        }
+
+        #h1 {
+            text-align: center;
+        }
+
+        #p {
+            text-align: center;
+            font-size: larger;
+            margin-bottom: 40px;
+        }
+
+        #button {
+            margin-top: 20px;
+            float: right;
+            margin-right: 20px;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: rgb(105, 105, 224);
+            color: white;
+
+        }
+
+        #p1 {
+            text-align: right;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <h1 id="h1">Quote of the Day
+        </h1>
+        <p id="p">"the greatest heading therapy is friendship an d love"</p><br>
+        <p id="p1">__Habert Humphrey</p>
+        <hr>
+        <button onclick="getData(event)" id="button">New Quote</button>
+    </div>
+
+    <script>
+        const getData = async (e) => {
+            e.preventDefault();
+            let data = null;
+            const url = "http://api.quotable.io/random";
+            const option = {};
+            try {
+                req = await fetch(url, option)
+
+                const response = await req.json();
+                const ptag = document.getElementById('p')
+                const p1tag = document.getElementById('p1')
+
+                ptag.innerText = response.content
+                p1tag.innerText = response.author
+            } catch (error) {
+                console.log(error);
+
+
+            }
+            return data;
+
+
+
+
+        };
+
+
+
+
+    </script>
+</body>
+
+</html>
