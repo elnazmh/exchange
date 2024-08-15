@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+
+</head>
+
+<body>
+    <div id="postList">
+
+    </div>
+    <script>
+        const getPosts = async () => {
+            let data = null;
+            const url = 'https://jsonplaceholder.typicode.com/posts';
+            const option = {};
+            try {
+                req = await fetch(url, option)
+                const response = await req.json();
+                postLists(response)
+            } catch (err) {
+                console.log(err);
+            } return data;
+        };
+
+        const postLists = (posts) => {
+            posts.forEach((post) => {
+
+                document.getElementById('postList')
+                    .appendChild(createPostTag(post))
+            })
+        };
+
+        const createPostTag = (post) => {
+            const pTag = document.createElement('p')
+            pTag.innerText = post.body
+            const hTag = document.createElement('h2')
+            hTag.innerText = post.title
+            const postTag = document.createElement('div')
+            postTag.setAttribute("id", `post-${post.id}`)
+            postTag.appendChild(hTag)
+            postTag.appendChild(pTag)
+            return postTag
+
+        };
+
+
+
+        getPosts()
+
+
+    </script>
+</body>
+
+</html>
